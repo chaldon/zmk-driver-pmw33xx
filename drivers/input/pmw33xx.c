@@ -436,7 +436,7 @@ static int pmw33xx_init(const struct device *dev) {
                 (SPI_WORD_SET(8) | SPI_TRANSFER_MSB | SPI_OP_MODE_MASTER | SPI_MODE_CPOL | SPI_MODE_CPHA), \
                 .slave = DT_INST_REG_ADDR(n),                                                      \
             },                                                                                     \
-        .cs_spec = PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(DT_DRV_INST(n), cs_gpios, 0),                   \
+        .cs_spec = PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(DT_DRV_INST(n), cs_gpios, n),                   \
     })
 
 #define PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(node_id, prop, idx)                                        \
@@ -453,7 +453,7 @@ static int pmw33xx_init(const struct device *dev) {
         .disable_rest = DT_INST_NODE_HAS_PROP(n, disable_rest),                                    \
         .cpi = COND_CODE_0(DT_INST_NODE_HAS_PROP(n, cpi), (0), (DT_INST_PROP(n, cpi)))                    \
             COND_CODE_1(CONFIG_PMW33XX_TRIGGER,                                                    \
-                        (, PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(DT_DRV_INST(n), motswk_gpios, 0)), ())  \
+                        (, PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(DT_DRV_INST(n), motswk_gpios, n)), ())  \
     }
 
 #define PMW33XX_INST(n)                                                                            \

@@ -5,20 +5,20 @@
  */
 #define DT_DRV_COMPAT pixart_pmw33xx
 
-#include <drivers/spi.h>
+#include <zephyr/drivers/spi.h>
 #include <errno.h>
 #include <device.h>
 #include <drivers/gpio.h>
 #include <sys/util.h>
 #include <sys/byteorder.h>
 #include <kernel.h>
-#include <drivers/sensor.h>
+#include <zephyr/drivers/sensor.h>
 #include <sys/__assert.h>
 #include <logging/log.h>
 #ifdef CONFIG_PMW33XX_3389
-#include <pmw3389_srom.h>
+#include "pmw3389_srom.h"
 #elif CONFIG_PMW33XX_3360
-#include <pmw3360_srom.h>
+#include "pmw3360_srom.h"
 #endif
 
 #include "pmw33xx.h"

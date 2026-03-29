@@ -436,7 +436,7 @@ static int pmw33xx_init(const struct device *dev) {
                 (SPI_WORD_SET(8) | SPI_TRANSFER_MSB | SPI_OP_MODE_MASTER | SPI_MODE_CPOL | SPI_MODE_CPHA), \
                 .slave = DT_INST_REG_ADDR(n),                                                      \
             },                                                                                     \
-        .cs_spec = PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(DT_DRV_INST(n), cs_gpios, 0),                   \
+        .cs_spec = PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(DT_DRV_INST(n), cs_gpios, 1),                   \
     })
 
 #define PMW33XX_GPIO_DT_SPEC_GET_BY_IDX(node_id, prop, idx)                                        \

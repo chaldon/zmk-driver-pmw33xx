@@ -13,7 +13,7 @@ SROM OR THE USE OR OTHER DEALINGS IN THIS SROM.
 #define ZEPHYR_DRIVERS_SENSOR_PIXART_PMW33XX_PMW3389_SROM_H_
 
 // firmware vesion id (the second byte in srom hex array)
-#define PMW33XX_FIRMWARE_ID			0x2A
+#define PMW33XX_FIRMWARE_ID			0xE8
 
 #include <stdint.h>
 static const uint8_t SROM[] = {

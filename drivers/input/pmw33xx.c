@@ -15,10 +15,12 @@
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/sys/__assert.h>
 #include <zephyr/logging/log.h>
-#ifdef CONFIG_PMW33XX_3360
+#ifdef PMW33XX_3360
 #include "pmw3360_srom.h"
-#else
+#elif PMW33XX_3389
 #include "pmw3389_srom.h"
+#else
+#error "Please define PMW33XX_3360 or PMW33XX_3389
 #endif
 
 #include "pmw33xx.h"

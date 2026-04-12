@@ -15,23 +15,23 @@
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/sys/__assert.h>
 #include <zephyr/logging/log.h>
-#ifdef PMW33XX_3360
+#ifdef CONFIG_PMW33XX_3360
 #include "pmw3360_srom.h"
-#elif PMW33XX_3389
+#elif CONFIG_PMW33XX_3389
 #include "pmw3389_srom.h"
 #else
-#error "Please define PMW33XX_3360 or PMW33XX_3389
+#error "Please define CONFIG_PMW33XX_3360 or CONFIG_PMW33XX_3389"
 #endif
 
 #include "pmw33xx.h"
 
 LOG_MODULE_REGISTER(PMW33XX, CONFIG_SENSOR_LOG_LEVEL);
 
-#define PMW33XX_PID COND_CODE_1(PMW33XX_3389, (PMW33XX_3389_PID), (PMW33XX_3360_PID))
+#define PMW33XX_PID COND_CODE_1(CONFIG_PMW33XX_3389, (PMW33XX_3389_PID), (PMW33XX_3360_PID))
 #define PMW33XX_CPI_MAX                                                                            \
-    COND_CODE_1(PMW33XX_3389, (PMW33XX_3389_CPI_MAX), (PMW33XX_3360_CPI_MAX))
+    COND_CODE_1(CONFIG_PMW33XX_3389, (PMW33XX_3389_CPI_MAX), (PMW33XX_3360_CPI_MAX))
 #define PMW33XX_CPI_MIN                                                                            \
-    COND_CODE_1(PMW33XX_3389, (PMW33XX_3389_CPI_MIN), (PMW33XX_3360_CPI_MIN))
+    COND_CODE_1(CONFIG_PMW33XX_3389, (PMW33XX_3389_CPI_MIN), (PMW33XX_3360_CPI_MIN))
 
 struct pmw33xx_motion_burst {
     uint8_t motion;
